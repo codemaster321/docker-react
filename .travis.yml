@@ -4,7 +4,7 @@ services:
 before_install:
   - docker build -t codemaster321/docker-react -f Dockerfile.dev .
 scripts:
-  - docker run codemaster321/docker-react npm run test -- --coverage
+  - docker run -e CI=true codemaster321/docker-react npm run test -- --coverage
 deploy:
   provider: elasticbeanstalk
   region: "ap-south-1"
